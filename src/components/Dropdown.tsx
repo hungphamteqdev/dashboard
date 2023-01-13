@@ -7,7 +7,7 @@ type OptionProps = {
 };
 type DropdownProps = {
   options: {
-    label: string;
+    label: React.ReactNode;
     value: string;
   }[];
   onChange: (value: string) => void;
@@ -18,7 +18,7 @@ const Dropdown = ({ options, onChange }: DropdownProps) => {
     <div className={clsx('Dropdown relative w-[90px]')}>
       <Image
         className={clsx(
-          'absolute right-0 top-[calc(50%_-_12px)] pointer-events-none'
+          'absolute right-0 top-[calc(50%_-_12px)] pointer-events-none  '
         )}
         src={'/caret-down.png'}
         width={24}
@@ -33,7 +33,7 @@ const Dropdown = ({ options, onChange }: DropdownProps) => {
         )}
       >
         {options.map((opt) => (
-          <option value={opt.value} key={opt.label}>
+          <option value={opt.value} key={opt.value}>
             {opt.label}
           </option>
         ))}

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Account from './Account';
 import AllExpenses from './AllExpenses';
+import SendMoney from './SendMoney';
 
 const RightSidebar = () => {
   return (
@@ -8,6 +9,8 @@ const RightSidebar = () => {
       <Account />
       <div className="mt-10" />
       <AllExpenses />
+      <div className="mt-10" />
+      <SendMoney />
     </div>
   );
 };

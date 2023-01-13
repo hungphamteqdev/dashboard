@@ -75,7 +75,7 @@ const AllExpenses = () => {
               ],
             }}
             options={{
-              cutout: 95,
+              cutout: '80%',
               plugins: {
                 legend: {
                   display: false,
