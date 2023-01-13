@@ -1,5 +1,6 @@
 import LeftSidebar from '@/components/LeftSidebar';
 import Main from '@/components/Main';
+import RightSidebar from '@/components/RightSidebar';
 import clsx from 'clsx';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className={clsx('flex')}>
       <LeftSidebar />
       <Main />
+      <RightSidebar />
     </div>
   );
 }
