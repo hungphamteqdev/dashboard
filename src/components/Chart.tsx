@@ -65,7 +65,12 @@ const Chart = () => {
 
   return (
     <div className={clsx('Chart')}>
-      <div className={clsx('flex items-center justify-between mb-[25px]')}>
+      <div
+        className={clsx(
+          'items-center justify-between mb-[25px] space-y-2',
+          'sm:space-y-0 sm:flex'
+        )}
+      >
         <h3 className={clsx('h3')}>Chart</h3>
         <TabHeader
           onClick={(value) => {
@@ -87,11 +92,17 @@ const Chart = () => {
           ]}
         />
       </div>
-      <div className={clsx('flex items-center gap-[50px]')}>
+      <div
+        className={clsx(
+          'items-center gap-[50px] space-y-2',
+          'sm:flex sm:space-y-0'
+        )}
+      >
         <div
           className={clsx(
-            'relative pl-5',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-gradient-to-r after:from-[#344FDB] after:to-[#CF6BFF] after:top-[calc(50%_-_7.5px)] after:left-0'
+            'relative pl-5 text-sm',
+            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-gradient-to-r after:from-[#344FDB] after:to-[#CF6BFF] after:top-[calc(50%_-_7.5px)] after:left-0',
+            'md:text-base'
           )}
         >
           Delivered
@@ -105,8 +116,9 @@ const Chart = () => {
         </div>
         <div
           className={clsx(
-            'relative pl-5 text-[#999999]',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-[#999999] after:top-[calc(50%_-_7.5px)] after:left-0'
+            'text-sm relative pl-5 text-[#999999]',
+            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-[#999999] after:top-[calc(50%_-_7.5px)] after:left-0',
+            'md:text-base'
           )}
         >
           Expense

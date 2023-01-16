@@ -15,8 +15,6 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
   const [toggle, setToggle] = useState(false);
   const restOptions = options.filter((opt) => opt.value !== active);
 
-  console.log(active);
-
   return (
     <div className={clsx('CustomSelect relative')}>
       {/* Header */}

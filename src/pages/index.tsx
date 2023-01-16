@@ -1,3 +1,4 @@
+import Backdrop from '@/components/Backdrop';
 import LeftSidebar from '@/components/LeftSidebar';
 import Main from '@/components/Main';
 import RightSidebar from '@/components/RightSidebar';
@@ -9,6 +10,7 @@ export default function Home() {
       <LeftSidebar />
       <Main />
       <RightSidebar />
+      <Backdrop />
     </div>
   );
 }

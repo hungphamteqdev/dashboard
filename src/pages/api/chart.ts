@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse<GetChartResponse>
 ) {
   const { type } = req.query
-  const rs = await getChart(type as string);
+  const rs = await getChart(type as keyof GetChartResponse);
   
   res.status(200).json(rs);
 }

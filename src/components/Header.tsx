@@ -1,7 +1,17 @@
+import { useAppDispatch } from '@/store/config';
+import {
+  toggleAccountSidebar,
+  useAccountSidebarSelector,
+} from '@/store/slices/accountSidebarSlice';
+import {
+  toggleMenuSidebar,
+  useMenuSidebarSelector,
+} from '@/store/slices/menuSidebarSlice';
 import clsx from 'clsx';
 import Image from 'next/image';
 
 const Searchbar = () => {
+  const { show } = useAccountSidebarSelector();
   return (
     <form className="Searchbar relative">
       <Image
@@ -27,11 +37,40 @@ const Searchbar = () => {
 };
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const { show } = useMenuSidebarSelector();
+
   return (
-    <div className={clsx('Header flex items-center')}>
-      <h2 className="h2">Your Dashboard</h2>
+    <div className={clsx('Header flex items-center flex-wrap')}>
+      <h2
+        className={clsx(
+          'h2 basis-full mb-4 flex justify-between items-center',
+          'lg:block',
+          'lg:basis-auto lg:mb-0'
+        )}
+      >
+        <button
+          className={clsx('lg:hidden')}
+          onClick={() => {
+            dispatch(toggleMenuSidebar(!show));
+          }}
+        >
+          <Image src={'/menu.png'} alt="" width={24} height={24} />
+        </button>
+        Your Dashboard
+        <button
+          className={clsx('md:hidden')}
+          onClick={() => {
+            dispatch(toggleAccountSidebar(!show));
+          }}
+        >
+          <Image src={'/user.png'} alt="" width={18} height={20} />
+        </button>
+      </h2>
       <div className="ml-auto" />
-      <Searchbar />
+      <div className={clsx('flex-1 [&>form>input]:w-full', 'lg:flex-initial')}>
+        <Searchbar />
+      </div>
 
       <div className={clsx('flex items-center space-x-[26px] ml-[43px]')}>
         <a href="">

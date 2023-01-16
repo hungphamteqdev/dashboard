@@ -25,41 +25,53 @@ const AllExpenses = () => {
 
   return (
     <div className="AllExpenses">
-      <div className={clsx('flex items-center justify-between mb-5')}>
+      <div
+        className={clsx('mb-5', 'xl:flex xl:items-center xl:justify-between')}
+      >
         <h2 className="h2">All Expenses</h2>
-        <Dropdown
-          onChange={(value) => {
-            setType(value);
-          }}
-          options={[
-            {
-              label: 'Daily',
-              value: 'daily',
-            },
-            {
-              label: 'Weekly',
-              value: 'weekly',
-            },
-            {
-              label: 'Monthly',
-              value: 'monthly',
-            },
-          ]}
-        />
+        <div className={clsx('[&>div]:w-full mt-4', 'xl:[&>div]:w-auto')}>
+          <Dropdown
+            onChange={(value) => {
+              setType(value);
+            }}
+            options={[
+              {
+                label: 'Daily',
+                value: 'daily',
+              },
+              {
+                label: 'Weekly',
+                value: 'weekly',
+              },
+              {
+                label: 'Monthly',
+                value: 'monthly',
+              },
+            ]}
+          />
+        </div>
       </div>
       <div className={clsx('rounded-[17px] p-5 bg-white')}>
-        <div className={clsx('mb-[30px] flex justify-between')}>
+        <div
+          className={clsx(
+            'mb-[30px] gap-2 flex justify-around flex-wrap',
+            'xl:flex-nowrap xl:justify-between'
+          )}
+        >
           {data?.data.map((v) => {
             return (
               <div key={v.label}>
                 <p
                   className={clsx(
-                    'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]'
+                    'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]',
+                    'md:text-xs'
                   )}
                 >
                   {v.label}
                 </p>
-                <p className={clsx('text-base')}>{`¥${v.value}.00`}</p>
+                <p
+                  className={clsx('text-sm', 'md:text-base')}
+                >{`¥${v.value}.00`}</p>
               </div>
             );
           })}
@@ -94,19 +106,24 @@ const AllExpenses = () => {
             <p className={clsx('text-sm font-[600] text-[rgba(0,0,0,0.6)]')}>
               Shopping
             </p>
-            <p className={clsx('text-2xl')}>¥450.00</p>
+            <p className={clsx('text-lg', 'lg:text-2xl')}>¥450.00</p>
           </div>
         </div>
 
-        <div className={clsx('flex justify-between items-center')}>
-          {Object.entries(LABEL_COLORS).map((v) => {
+        <div className={clsx('2xl:flex justify-between items-center')}>
+          {Object.entries(LABEL_COLORS).map((v, idx) => {
             return (
               <div
                 key={v[0]}
                 className={clsx(
                   'relative pl-[17px] text-xs font-[600]',
-                  `before:content-[""] before:w-[11px] before:h-[11px] before:bg-[${v[1]}]`,
-                  'before:rounded-full before:absolute before:left-0 before:top-[3px]'
+                  'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[${v[1]}]',
+                  'before:rounded-full before:absolute before:left-0 before:top-[3px]',
+                  {
+                    'before:bg-[#FFCA28]': idx === 0,
+                    'before:bg-[#EC6F48]': idx === 1,
+                    'before:bg-[#836CDA]': idx === 2,
+                  }
                 )}
               >
                 {v[0]}

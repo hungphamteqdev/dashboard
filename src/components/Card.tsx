@@ -26,10 +26,16 @@ const Card = ({ bgColor, money, logo, number, name, exp }: CardProps) => {
       )}
     >
       <div className={clsx('flex items-center justify-between mb-8')}>
-        <p className={clsx('text-3xl')}>{money}</p>
+        <p className={clsx('text-xl', 'md:text-2xl', 'lg:text-3xl')}>{money}</p>
         <Image src={logo} alt="" width={46} height={15} />
       </div>
-      <p className={clsx('text-[22px] flex justify-between mb-[29px]')}>
+      <p
+        className={clsx(
+          'text-[18px] justify-between flex mb-[29px]',
+          'md:gap-10 md:justify-start',
+          'lg:text-[22px]'
+        )}
+      >
         {<span>{numberSplitted.slice(0, 4)}</span>}
         {<span>{numberSplitted.slice(4, 8)}</span>}
         {<span>{numberSplitted.slice(8, 12)}</span>}

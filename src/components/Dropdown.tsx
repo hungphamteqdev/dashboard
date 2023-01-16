@@ -29,7 +29,8 @@ const Dropdown = ({ options, onChange }: DropdownProps) => {
       <select
         onChange={(e) => onChange(e.target.value)}
         className={clsx(
-          'p-[10px] w-full border border-[#E6E6E6] rounded-[9px] font-[500] outline-none appearance-none'
+          'text-sm p-[10px] w-full border border-[#E6E6E6] rounded-[9px] font-[500] outline-none appearance-none',
+          'md:text-base'
         )}
       >
         {options.map((opt) => (

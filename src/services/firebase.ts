@@ -60,7 +60,7 @@ export const getData = async <T>(key: string, value: string, path: string) => {
 export const getActivities = async (year: keyof GetActivityResponse) => {
   return getData<GetActivityResponse>('year', year, 'activities');
 };
-export const getChart = async (type: keyof GetActivityResponse) => {
+export const getChart = async (type: keyof GetChartResponse) => {
   return getData<GetChartResponse>('type', type, 'chart');
 };
 
