@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse<GetActivityResponse>
 ) {
   const { year } = req.query
-  const rs = await getActivities(year as string);
+  const rs = await getActivities(year as keyof GetActivityResponse);
   
   res.status(200).json(rs);
 }

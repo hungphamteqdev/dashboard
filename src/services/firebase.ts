@@ -12,14 +12,15 @@ import {
 import { GetActivityResponse } from './../types/GetActivityResponse';
 import { Transection } from './../types/Transection';
 
+import { GetExpenseResponse } from '@/types/GetExpenseResponse';
 import { customAlphabet } from 'nanoid';
 
 const alphabet =
-'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const nanoid = customAlphabet(alphabet, 20);
 
-const randomIntFromInterval = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
-
+const randomIntFromInterval = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDcv5zMQr9weZIVs9GSs_BiOJhSzL0D7jo',
@@ -43,34 +44,55 @@ export const getTransections = async () => {
   return rs;
 };
 
-export const getActivities = async (year: string) => {
-  const ref = collection(db, 'activities');
-  const q = query(ref, where('year', '==', year));
-
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs[0].data() as GetActivityResponse;
+export const getExpenses = async (type: string) => {
+  return getData<GetExpenseResponse>('type', type, 'expenses');
 };
 
-export const getChart = async (type: string) => {
-  const ref = collection(db, 'chart');
-  const q = query(ref, where('type', '==', type));
+export const getData = async <T>(key: string, value: string, path: string) => {
+  
+  const ref = collection(db, path);
+  const q = query(ref, where(key as string, '==', value));
 
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs[0].data() as GetChartResponse;
+  return querySnapshot.docs[0].data() as T;
 };
 
-export const postChart = async (type: string) => {
+export const getActivities = async (year: keyof GetActivityResponse) => {
+  return getData<GetActivityResponse>('year', year, 'activities');
+};
+export const getChart = async (type: keyof GetActivityResponse) => {
+  return getData<GetChartResponse>('type', type, 'chart');
+};
+
+
+
+export const postData = async (type: string) => {
   const id = nanoid();
-  const randomData = new Array(12).fill({}).map((val, idx) => {
-    return {
-      label: ++idx < 9 ? ('0' + idx) : idx.toString(),
-      value: randomIntFromInterval(0, 60).toString()
-    }
-  });
+  // const randomData = new Array(3).fill({}).map((val, idx) => {
+  //   return {
+  //     label: ++idx < 9 ? '0' + idx : idx.toString(),
+  //     value: randomIntFromInterval(0, 60).toString(),
+  //   };
+  // });
 
-  setDoc(doc(db, 'chart', id), {
+  const randomData = [
+    {
+      label: 'Shopping',
+      value: randomIntFromInterval(300, 600).toString()
+    },
+    {
+      label: 'Workspace',
+      value: randomIntFromInterval(300, 600).toString()
+    },
+    {
+      label: 'Platform',
+      value: randomIntFromInterval(300, 600).toString()
+    },
+  ]
+
+  setDoc(doc(db, 'expenses', id), {
     id,
     data: randomData,
-    type
-  })
+    type,
+  });
 };

@@ -1,17 +1,36 @@
+import { GetExpenseResponse } from '@/types/GetExpenseResponse';
+import axios from 'axios';
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import useSWR from 'swr';
 import Dropdown from './Dropdown';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+const LABEL_COLORS = {
+  'Shopping': '#FFCA28',
+  'Workspace': '#EC6F48',
+  'Platform': '#836CDA',
+};
 
 const AllExpenses = () => {
+  const [type, setType] = useState('daily');
+  const { data } = useSWR(`/api/expenses?type=${type}`, async (url) => {
+    const rs = await axios.get(url);
+    return rs.data as GetExpenseResponse;
+  });
+  const labels = data ? data.data.map((v) => v.label) : [];
+  const dataSet = data ? data.data.map((v) => v.value) : [];
+
   return (
     <div className="AllExpenses">
       <div className={clsx('flex items-center justify-between mb-5')}>
         <h2 className="h2">All Expenses</h2>
         <Dropdown
-          onChange={() => {}}
+          onChange={(value) => {
+            setType(value);
+          }}
           options={[
             {
               label: 'Daily',
@@ -30,46 +49,30 @@ const AllExpenses = () => {
       </div>
       <div className={clsx('rounded-[17px] p-5 bg-white')}>
         <div className={clsx('mb-[30px] flex justify-between')}>
-          <div>
-            <p
-              className={clsx(
-                'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]'
-              )}
-            >
-              Daily
-            </p>
-            <p className={clsx('text-base')}>¥450.00</p>
-          </div>
-          <div>
-            <p
-              className={clsx(
-                'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]'
-              )}
-            >
-              Weekly
-            </p>
-            <p className={clsx('text-base')}>¥879.00</p>
-          </div>
-          <div>
-            <p
-              className={clsx(
-                'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]'
-              )}
-            >
-              Monthly
-            </p>
-            <p className={clsx('text-base')}>¥234.00</p>
-          </div>
+          {data?.data.map((v) => {
+            return (
+              <div key={v.label}>
+                <p
+                  className={clsx(
+                    'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]'
+                  )}
+                >
+                  {v.label}
+                </p>
+                <p className={clsx('text-base')}>{`¥${v.value}.00`}</p>
+              </div>
+            );
+          })}
         </div>
 
         <div className={clsx('relative mb-[30px]')}>
           <Doughnut
             data={{
-              labels: ['Red', 'Blue', 'Yellow'],
+              labels: labels,
               datasets: [
                 {
                   label: '# of Votes',
-                  data: [12, 19, 3],
+                  data: dataSet,
                   backgroundColor: ['#836CDA', '#FFCA28', '#EC6F48'],
                 },
               ],
@@ -96,30 +99,20 @@ const AllExpenses = () => {
         </div>
 
         <div className={clsx('flex justify-between items-center')}>
-          <div
-            className={clsx(
-              'relative pl-[17px] text-xs font-[600]',
-              'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[#FFCA28] before:rounded-full before:absolute before:left-0 before:top-[3px]'
-            )}
-          >
-            Shopping
-          </div>
-          <div
-            className={clsx(
-              'relative pl-[17px] text-xs font-[600]',
-              'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[#EC6F48] before:rounded-full before:absolute before:left-0 before:top-[3px]'
-            )}
-          >
-            Workspace
-          </div>
-          <div
-            className={clsx(
-              'relative pl-[17px] text-xs font-[600]',
-              'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[#836CDA] before:rounded-full before:absolute before:left-0 before:top-[3px]'
-            )}
-          >
-            Platform
-          </div>
+          {Object.entries(LABEL_COLORS).map((v) => {
+            return (
+              <div
+                key={v[0]}
+                className={clsx(
+                  'relative pl-[17px] text-xs font-[600]',
+                  `before:content-[""] before:w-[11px] before:h-[11px] before:bg-[${v[1]}]`,
+                  'before:rounded-full before:absolute before:left-0 before:top-[3px]'
+                )}
+              >
+                {v[0]}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
