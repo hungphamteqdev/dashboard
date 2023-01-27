@@ -20,7 +20,7 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
       {/* Header */}
       <div
         className={clsx(
-          'cursor-pointer relative bg-[#FAFAFA] py-[18px] pl-[15px] pr-[38px] rounded-[9px]'
+          'cursor-pointer relative bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg'
         )}
         onClick={() => {
           setToggle((prev) => !prev);
@@ -40,14 +40,14 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
       {toggle && (
         <div
           className={clsx(
-            'absolute pt-2 space-y-2 top-full left-0 w-full bg-white rounded-[9px]'
+            'absolute pt-2 space-y-2 top-full left-0 w-full bg-white rounded-lg'
           )}
         >
           {restOptions.map((opt, idx) => {
             return (
               <div
                 className={clsx(
-                  'cursor-pointer bg-[#FAFAFA] py-[18px] pl-[15px] pr-[38px] rounded-[9px]'
+                  'cursor-pointer bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg'
                 )}
                 key={idx}
                 onClick={() => {

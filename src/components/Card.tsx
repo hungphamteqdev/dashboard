@@ -20,7 +20,7 @@ const Card = ({ bgColor, money, logo, number, name, exp }: CardProps) => {
       }}
       className={clsx(
         'Card',
-        'p-5 rounded-[17px] text-white font-[800] relative overflow-hidden',
+        'p-5 rounded-2xl text-white font-extrabold relative overflow-hidden',
         'shadow-[0px_55px_53px_-50px_rgba(0,0,0,0.36)]',
         'after:content-[""] after:absolute after:w-[92%] after:pt-[92%] after:rounded-full after:bg-[rgba(0,0,0,0.05)] after:top-0 after:left-[37.6%]'
       )}
@@ -31,7 +31,7 @@ const Card = ({ bgColor, money, logo, number, name, exp }: CardProps) => {
       </div>
       <p
         className={clsx(
-          'text-[18px] justify-between flex mb-[29px]',
+          'text-lg justify-between flex mb-[29px]',
           'md:gap-10 md:justify-start',
           'lg:text-[22px]'
         )}

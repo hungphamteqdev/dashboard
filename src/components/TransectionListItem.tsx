@@ -9,11 +9,11 @@ type ListItemProps = {
 
 const TransectionListItem = ({ imageSrc, date, title }: ListItemProps) => {
   return (
-    <div className={clsx('ListItem flex items-center gap-[10px]')}>
+    <div className={clsx('ListItem flex items-center gap-2.5')}>
       <Avatar src={imageSrc} width={54} height={54} />
       <div className={clsx('flex flex-col')}>
-        <p className={clsx('mb-[2px]')}>{title}</p>
-        <span className={clsx('font-[600] text-xs text-[rgba(0,0,0,0.4)]')}>
+        <p className={clsx('mb-0.5')}>{title}</p>
+        <span className={clsx('font-semibold text-xs text-colorGray')}>
           {date}
         </span>
       </div>

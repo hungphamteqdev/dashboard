@@ -24,7 +24,7 @@ const LeftSidebar = () => {
   return (
     <div
       className={clsx(
-        'LeftSidebar w-[300px] p-[30px] border-r border-[rgba(0,0,0,0.1)] fixed h-screen overflow-auto left-0 top-0 bg-white z-10',
+        'LeftSidebar w-[300px] p-7.5 border-r border-[rgba(0,0,0,0.1)] fixed h-screen overflow-auto left-0 top-0 bg-white z-10',
         'transition-all -translate-x-full',
         {
           '-translate-x-0': show,
@@ -50,7 +50,7 @@ const LeftSidebar = () => {
       <div className="mt-14 md:hidden"></div>
       <Link
         className={clsx(
-          'flex items-center gap-[15px] mt-auto p-[13px] text-base font-[600]'
+          'flex items-center gap-3.75 mt-auto p-3.25 text-base font-semibold'
         )}
         href="/"
       >

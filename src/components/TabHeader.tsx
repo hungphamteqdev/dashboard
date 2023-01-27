@@ -17,7 +17,7 @@ const TabHeader = ({
   return (
     <div
       className={clsx(
-        'TabHeader flex font-[600] bg-[#F6F6F6] rounded-[30px] w-max'
+        'TabHeader flex font-semibold bg-[#F6F6F6] rounded-3xl w-max'
       )}
     >
       {tabs.map((tab, idx) => {
@@ -29,7 +29,7 @@ const TabHeader = ({
               setActive(idx);
             }}
             className={clsx(
-              'px-5 py-[10px] rounded-[30px] text-xs capitalize',
+              'px-5 py-2.5 rounded-3xl text-xs capitalize',
               'hover:bg-black hover:text-white cursor-pointer transition-all',
               {
                 'bg-black text-white': idx === active,

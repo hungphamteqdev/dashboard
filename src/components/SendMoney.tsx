@@ -8,9 +8,7 @@ const FIREBASE_CREDIT_CARDS = [
     label: (
       <div className={clsx('flex items-center')}>
         <Image src={'/send-money-img.png'} alt="" width={39} height={24} />
-        <p className={clsx('ml-[10px] text-sm text-[rgba(0,0,0,0.6)]')}>
-          Credit
-        </p>
+        <p className={clsx('ml-2.5 text-sm text-colorGrayDarker')}>Credit</p>
         <p className={clsx('ml-auto text-lg')}>
           ¥890.<span className={clsx('text-xs')}>00</span>
         </p>
@@ -22,9 +20,7 @@ const FIREBASE_CREDIT_CARDS = [
     label: (
       <div className={clsx('flex items-center')}>
         <Image src={'/send-money-img.png'} alt="" width={39} height={24} />
-        <p className={clsx('ml-[10px] text-sm text-[rgba(0,0,0,0.6)]')}>
-          Credit
-        </p>
+        <p className={clsx('ml-2.5 text-sm text-colorGrayDarker')}>Credit</p>
         <p className={clsx('ml-auto text-lg')}>
           ¥870.<span className={clsx('text-xs')}>00</span>
         </p>
@@ -36,9 +32,7 @@ const FIREBASE_CREDIT_CARDS = [
     label: (
       <div className={clsx('flex items-center')}>
         <Image src={'/send-money-img.png'} alt="" width={39} height={24} />
-        <p className={clsx('ml-[10px] text-sm text-[rgba(0,0,0,0.6)]')}>
-          Credit
-        </p>
+        <p className={clsx('ml-2.5 text-sm text-colorGrayDarker')}>Credit</p>
         <p className={clsx('ml-auto text-lg')}>
           ¥860.<span className={clsx('text-xs')}>00</span>
         </p>
@@ -56,10 +50,10 @@ const SendMoney = () => {
   return (
     <div className={clsx('SendMoney')}>
       <h2 className="h2 mb-5">Send Money</h2>
-      <div className={clsx('bg-white rounded-[17px] p-5')}>
+      <div className={clsx('bg-white rounded-2xl p-5')}>
         <div
           className={clsx(
-            '[&_img]:w-9 flex items-center justify-between mb-[25.5px]'
+            '[&_img]:w-9 flex items-center justify-between mb-6.5'
           )}
         >
           <TransectionListItem
@@ -67,7 +61,7 @@ const SendMoney = () => {
             imageSrc={'/avatar-2.png'}
             title={'Belle Incentive'}
           />
-          <a className={clsx('text-xs font-[700] text-[#1D70E1]')} href="">
+          <a className={clsx('text-xs font-bold text-[#1D70E1]')} href="">
             Change
           </a>
         </div>
@@ -78,17 +72,13 @@ const SendMoney = () => {
         <div
           className={clsx(
             'flex items-center justify-between  mb-5',
-            'bg-[#FAFAFA] py-[18px] pl-[15px] pr-[10px] rounded-[9px]'
+            'bg-colorGrayLightest py-4.5 pl-3.75 pr-2.5 rounded-lg'
           )}
         >
           <div>
-            <p className={clsx('text-[rgba(0,0,0,0.6)] text-xs')}>
-              Enter Amount
-            </p>
+            <p className={clsx('text-colorGrayDarker text-xs')}>Enter Amount</p>
             <p className={clsx('text-[22px]')}>
-              <span
-                className={clsx('text-[rgba(0,0,0,0.4)] font-[500] mr-[6px]')}
-              >
+              <span className={clsx('text-colorGray font-medium mr-[6px]')}>
                 ¥
               </span>
               890.<span className={clsx('text-sm')}>00</span>
@@ -96,9 +86,7 @@ const SendMoney = () => {
           </div>
 
           <div className={clsx('flex items-center justify-between')}>
-            <select
-              className={clsx('appearance-none mr-2 text-[rgba(0,0,0,0.4)]')}
-            >
+            <select className={clsx('appearance-none mr-2 text-colorGray')}>
               <option value="yen">YEN</option>
               <option value="yen">YEN</option>
               <option value="yen">YEN</option>
@@ -116,7 +104,7 @@ const SendMoney = () => {
         </div>
         <button
           className={clsx(
-            'bg-[#249A70] py-[15px] px-[18px] rounded-[9px] w-full text-white text-sm font-[700]'
+            'bg-[#249A70] py-3.75 px-4.5 rounded-lg w-full text-white text-sm font-bold'
           )}
         >
           Send Money

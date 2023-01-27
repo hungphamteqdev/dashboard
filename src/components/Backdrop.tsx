@@ -40,9 +40,7 @@ const Backdrop = () => {
             onClick={() => {
               dispatch(toggleBackdrop(!show));
             }}
-            className={clsx(
-              'fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)]'
-            )}
+            className={clsx('fixed top-0 left-0 w-full h-full bg-colorGray')}
           />,
           $portal.current
         )}
