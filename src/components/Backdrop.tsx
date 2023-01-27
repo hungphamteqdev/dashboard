@@ -4,16 +4,14 @@ import {
   useBackdropSelector,
 } from '@/store/slices/backdropSlice';
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const Backdrop = () => {
+const Backdrop = ({ children }: { children: React.ReactNode }) => {
   const $portal = useRef<HTMLDivElement | null>(null);
   const [mouted, setMouted] = useState(false);
   const { show } = useBackdropSelector();
   const dispatch = useAppDispatch();
-
-  console.log('backdrop: ', show);
 
   useEffect(() => {
     if (mouted) return;
@@ -21,18 +19,13 @@ const Backdrop = () => {
     setMouted(true);
   }, [mouted]);
 
-  useEffect(() => {
-    const $body = document.querySelector('body');
-    if (!$body) return;
-    if (show) {
-      $body.classList.add('block-scroll');
-      return;
-    }
-    $body.classList.remove('block-scroll');
-  }, [show]);
-
   return (
-    <>
+    <div
+      className={clsx({
+        'block-scroll': show,
+      })}
+    >
+      {children}
       {show &&
         $portal.current &&
         createPortal(
@@ -44,7 +37,7 @@ const Backdrop = () => {
           />,
           $portal.current
         )}
-    </>
+    </div>
   );
 };
 export default Backdrop;

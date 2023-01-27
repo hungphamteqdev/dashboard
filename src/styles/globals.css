@@ -18,6 +18,7 @@
     margin: 0 auto;
   }
   .block-scroll {
+    max-height: 100vh;
     overflow: hidden;
   }
 
