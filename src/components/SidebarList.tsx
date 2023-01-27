@@ -13,22 +13,14 @@ const SidebarList = ({ list }: { list: SidebarList[] }) => {
 
   return (
     <div className={clsx('SidebarList', 'flex flex-col')}>
-      <ul className={clsx('space-y-[29px]')}>
+      <ul className={clsx('space-y-7.5')}>
         {list.map((item, idx) => (
           <li key={item.id}>
             <a
               href={item.href}
-              className={clsx(
-                'flex items-center gap-[15px] text-sm',
-                'font-[600]',
-                'rounded-[9px]',
-                'p-[13px]',
-                'hover:bg-[#F7F7F7]',
-                {
-                  'bg-[#F7F7F7]': idx === 0,
-                },
-                'md:text-base'
-              )}
+              className={clsx('sidebarlist-list-item', {
+                'bg-[#F7F7F7]': idx === 0,
+              })}
             >
               <Image
                 className={clsx('h-auto')}

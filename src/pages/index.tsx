@@ -6,11 +6,12 @@ import clsx from 'clsx';
 
 export default function Home() {
   return (
-    <div className={clsx('flex')}>
-      <LeftSidebar />
-      <Main />
-      <RightSidebar />
-      <Backdrop />
-    </div>
+    <Backdrop>
+      <div className={clsx('flex')}>
+        <LeftSidebar />
+        <Main />
+        <RightSidebar />
+      </div>
+    </Backdrop>
   );
 }

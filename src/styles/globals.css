@@ -18,6 +18,7 @@
     margin: 0 auto;
   }
   .block-scroll {
+    max-height: 100vh;
     overflow: hidden;
   }
 
@@ -44,5 +45,54 @@
     .h3 {
       font-size: 18px;
     }
+  }
+}
+
+@layer components {
+  .all-expenses-label {
+    @apply relative pl-4 text-xs font-semibold before:content-[""] before:w-2.5 before:h-2.5 before:rounded-full before:absolute before:left-0 before:top-1;
+  }
+  .card {
+    @apply p-5 rounded-2xl text-white font-extrabold relative overflow-hidden shadow-[0px_55px_53px_-50px_rgba(0,0,0,0.36)] after:content-[""] after:absolute after:w-[92%] after:pt-[92%] after:rounded-full after:bg-[rgba(0,0,0,0.05)] after:top-0 after:left-[37.6%];
+  }
+  .card-number {
+    @apply text-lg justify-between flex mb-7.5 md:gap-10 md:justify-start lg:text-[22px];
+  }
+  .chart-label-bg {
+    @apply relative pl-5 text-sm after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:top-[calc(50%_-_7.5px)] after:left-0 md:text-base;
+  }
+  .custom-select-wrap {
+    @apply cursor-pointer relative bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg;
+  }
+  .custom-select-list {
+    @apply absolute pt-2 space-y-2 top-full left-0 w-full bg-white rounded-lg;
+  }
+  .custom-select-list-item {
+    @apply cursor-pointer bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg;
+  }
+  .dropdown-select {
+    @apply text-sm p-2.5 w-full border border-[#E6E6E6] rounded-lg font-medium outline-none appearance-none md:text-base;
+  }
+  .search-input {
+    @apply bg-colorGrayLightest w-[383px] rounded-lg py-3.5 px-12 font-medium focus-visible:outline-none placeholder:font-medium;
+  }
+  .search-action-icon {
+    @apply relative after:content-[""] after:absolute after:right-0 after:top-0.5 after:w-2 after:h-2 after:bg-[#FF3636] after:rounded-full after:border after:border-white;
+  }
+  .left-sidebar {
+    @apply w-[300px] p-7.5 border-r border-[rgba(0,0,0,0.1)] fixed h-screen overflow-auto left-0 top-0 bg-white z-10 transition-all -translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:w-[16.25%] lg:flex lg:flex-col;
+  }
+
+  .add-card-btn {
+    @apply self-stretch p-4 flex basis-full flex-col gap-1.5 items-center justify-center border border-dashed border-[rgba(0,0,0,0.1)] rounded-2xl 3xl:p-0 3xl:basis-24;
+  }
+  .right-sidebar {
+    @apply p-5 w-[300px] h-screen overflow-y-auto fixed top-0 right-0 bg-[#FFECED] z-10 transition-all translate-x-full md:static md:w-[30%] md:h-auto md:translate-x-0 lg:w-[21.25%] 3xl:p-7.5;
+  }
+  .sidebarlist-list-item {
+    @apply flex items-center gap-3.75 text-sm font-semibold rounded-lg p-3.25 hover:bg-[#F7F7F7] md:text-base;
+  }
+  .tab-header {
+    @apply px-5 py-2.5 rounded-3xl text-xs capitalize hover:bg-black hover:text-white cursor-pointer transition-all md:text-sm;
   }
 }
