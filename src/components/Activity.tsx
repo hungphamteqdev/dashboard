@@ -82,7 +82,7 @@ const Activity = () => {
 
   return (
     <div className={clsx('Transection h-full')}>
-      <div className={clsx('flex items-center justify-between mb-[30px]')}>
+      <div className={clsx('flex items-center justify-between mb-7.5')}>
         <h3 className="h3">Activity</h3>
         <Dropdown
           onChange={(value) => {
