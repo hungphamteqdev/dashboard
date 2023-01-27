@@ -44,14 +44,7 @@ const Main = () => {
             exp={'11/35'}
           />
         </div>
-        <div
-          className={clsx(
-            'self-stretch p-4',
-            'flex basis-full flex-col gap-1.5 items-center justify-center',
-            'border border-dashed border-[rgba(0,0,0,0.1)] rounded-2xl',
-            '3xl:p-0 3xl:basis-24'
-          )}
-        >
+        <div className={clsx('add-card-btn')}>
           <Image src={'/plus.png'} alt="" width={20} height={20} />
           <p className={clsx(' text-colorGrayLighter')}>Add Card</p>
         </div>

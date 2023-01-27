@@ -18,17 +18,9 @@ const SidebarList = ({ list }: { list: SidebarList[] }) => {
           <li key={item.id}>
             <a
               href={item.href}
-              className={clsx(
-                'flex items-center gap-3.75 text-sm',
-                'font-semibold',
-                'rounded-lg',
-                'p-3.25',
-                'hover:bg-[#F7F7F7]',
-                {
-                  'bg-[#F7F7F7]': idx === 0,
-                },
-                'md:text-base'
-              )}
+              className={clsx('sidebarlist-list-item', {
+                'bg-[#F7F7F7]': idx === 0,
+              })}
             >
               <Image
                 className={clsx('h-auto')}

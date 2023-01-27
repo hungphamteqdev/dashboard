@@ -19,9 +19,7 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
     <div className={clsx('CustomSelect relative')}>
       {/* Header */}
       <div
-        className={clsx(
-          'cursor-pointer relative bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg'
-        )}
+        className={clsx('custom-select-wrap')}
         onClick={() => {
           setToggle((prev) => !prev);
         }}
@@ -38,17 +36,11 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
 
       {/* Content */}
       {toggle && (
-        <div
-          className={clsx(
-            'absolute pt-2 space-y-2 top-full left-0 w-full bg-white rounded-lg'
-          )}
-        >
+        <div className={clsx('custom-select-list')}>
           {restOptions.map((opt, idx) => {
             return (
               <div
-                className={clsx(
-                  'cursor-pointer bg-colorGrayLightest py-4.5 pl-3.75 pr-9.5 rounded-lg'
-                )}
+                className={clsx('custom-select-list-item')}
                 key={idx}
                 onClick={() => {
                   setActive(opt.value);

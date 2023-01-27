@@ -28,14 +28,9 @@ const TabHeader = ({
               onClick(tab.value);
               setActive(idx);
             }}
-            className={clsx(
-              'px-5 py-2.5 rounded-3xl text-xs capitalize',
-              'hover:bg-black hover:text-white cursor-pointer transition-all',
-              {
-                'bg-black text-white': idx === active,
-              },
-              'md:text-sm'
-            )}
+            className={clsx('tab-header', {
+              'bg-black text-white': idx === active,
+            })}
           >
             {tab.value}
           </div>

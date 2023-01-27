@@ -18,7 +18,7 @@ const Dropdown = ({ options, onChange }: DropdownProps) => {
     <div className={clsx('Dropdown relative w-[90px]')}>
       <Image
         className={clsx(
-          'absolute right-0 top-[calc(50%_-_12px)] pointer-events-none  '
+          'absolute right-0 top-[calc(50%_-_12px)] pointer-events-none'
         )}
         src={'/caret-down.png'}
         width={24}
@@ -28,10 +28,7 @@ const Dropdown = ({ options, onChange }: DropdownProps) => {
 
       <select
         onChange={(e) => onChange(e.target.value)}
-        className={clsx(
-          'text-sm p-2.5 w-full border border-[#E6E6E6] rounded-lg font-medium outline-none appearance-none',
-          'md:text-base'
-        )}
+        className={clsx('dropdown-select')}
       >
         {options.map((opt) => (
           <option value={opt.value} key={opt.value}>

@@ -22,13 +22,7 @@ const Searchbar = () => {
         height={15}
       />
       <input
-        className={clsx(
-          'bg-colorGrayLightest w-[383px] rounded-lg',
-          'py-3.5 px-12',
-          'font-medium',
-          'focus-visible:outline-none',
-          'placeholder:font-medium'
-        )}
+        className={clsx('search-input')}
         type="text"
         placeholder="Search"
       />
@@ -76,13 +70,7 @@ const Header = () => {
         <a href="">
           <Image src={'/header-icon-1.png'} alt="" width={18} height={18} />
         </a>
-        <a
-          href=""
-          className={clsx(
-            'relative',
-            'after:content-[""] after:absolute after:right-0 after:top-0.5 after:w-2 after:h-2 after:bg-[#FF3636] after:rounded-full after:border after:border-white'
-          )}
-        >
+        <a href="" className={clsx('search-action-icon')}>
           <Image src={'/header-icon-2.png'} alt="" width={18} height={18} />
         </a>
       </div>

@@ -23,14 +23,9 @@ const LeftSidebar = () => {
   const dispatch = useAppDispatch();
   return (
     <div
-      className={clsx(
-        'LeftSidebar w-[300px] p-7.5 border-r border-[rgba(0,0,0,0.1)] fixed h-screen overflow-auto left-0 top-0 bg-white z-10',
-        'transition-all -translate-x-full',
-        {
-          '-translate-x-0': show,
-        },
-        'lg:translate-x-0 lg:static lg:h-auto lg:w-[16.25%] lg:flex lg:flex-col'
-      )}
+      className={clsx('left-sidebar', {
+        '-translate-x-0': show,
+      })}
     >
       <div className={clsx('flex justify-between items-start', 'md:block')}>
         <Avatar src="/avatar-1.png" />

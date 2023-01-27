@@ -115,16 +115,11 @@ const AllExpenses = () => {
             return (
               <div
                 key={v[0]}
-                className={clsx(
-                  'relative pl-[17px] text-xs font-semibold',
-                  'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[${v[1]}]',
-                  'before:rounded-full before:absolute before:left-0 before:top-[3px]',
-                  {
-                    'before:bg-[#FFCA28]': idx === 0,
-                    'before:bg-[#EC6F48]': idx === 1,
-                    'before:bg-[#836CDA]': idx === 2,
-                  }
-                )}
+                className={clsx('all-expenses-label', {
+                  'before:bg-[#FFCA28]': idx === 0,
+                  'before:bg-[#EC6F48]': idx === 1,
+                  'before:bg-[#836CDA]': idx === 2,
+                })}
               >
                 {v[0]}
               </div>

@@ -100,9 +100,8 @@ const Chart = () => {
       >
         <div
           className={clsx(
-            'relative pl-5 text-sm',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-gradient-to-r after:from-colorBlue after:to-colorPurple after:top-[calc(50%_-_7.5px)] after:left-0',
-            'md:text-base'
+            'chart-label-bg',
+            'after:bg-gradient-to-r after:from-colorBlue after:to-colorPurple '
           )}
         >
           Delivered
@@ -116,9 +115,9 @@ const Chart = () => {
         </div>
         <div
           className={clsx(
-            'text-sm relative pl-5 text-colorGrayLighter',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-colorGrayLighter after:top-[calc(50%_-_7.5px)] after:left-0',
-            'md:text-base'
+            'chart-label-bg',
+            'text-colorGrayLighter',
+            'after:bg-colorGrayLighter'
           )}
         >
           Expense
