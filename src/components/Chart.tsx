@@ -100,9 +100,8 @@ const Chart = () => {
       >
         <div
           className={clsx(
-            'relative pl-5 text-sm',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-gradient-to-r after:from-[#344FDB] after:to-[#CF6BFF] after:top-[calc(50%_-_7.5px)] after:left-0',
-            'md:text-base'
+            'chart-label-bg',
+            'after:bg-gradient-to-r after:from-colorBlue after:to-colorPurple '
           )}
         >
           Delivered
@@ -110,15 +109,15 @@ const Chart = () => {
         <div className={clsx('flex items-center')}>
           <span>250</span>
           <Image width={16} height={16} src={'/caret-up.png'} alt="" />
-          <span className={clsx('text-xs text-[#0FC1A1] font-[400]')}>
+          <span className={clsx('text-xs text-colorGreen font-normal')}>
             4.5%
           </span>
         </div>
         <div
           className={clsx(
-            'text-sm relative pl-5 text-[#999999]',
-            'after:content-[""] after:absolute after:w-[14px] after:h-[14px] after:bg-[#999999] after:top-[calc(50%_-_7.5px)] after:left-0',
-            'md:text-base'
+            'chart-label-bg',
+            'text-colorGrayLighter',
+            'after:bg-colorGrayLighter'
           )}
         >
           Expense

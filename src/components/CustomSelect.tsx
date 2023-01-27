@@ -19,9 +19,7 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
     <div className={clsx('CustomSelect relative')}>
       {/* Header */}
       <div
-        className={clsx(
-          'cursor-pointer relative bg-[#FAFAFA] py-[18px] pl-[15px] pr-[38px] rounded-[9px]'
-        )}
+        className={clsx('custom-select-wrap')}
         onClick={() => {
           setToggle((prev) => !prev);
         }}
@@ -38,17 +36,11 @@ const CustomSelect = ({ options, onChange }: CustomSelectProps) => {
 
       {/* Content */}
       {toggle && (
-        <div
-          className={clsx(
-            'absolute pt-2 space-y-2 top-full left-0 w-full bg-white rounded-[9px]'
-          )}
-        >
+        <div className={clsx('custom-select-list')}>
           {restOptions.map((opt, idx) => {
             return (
               <div
-                className={clsx(
-                  'cursor-pointer bg-[#FAFAFA] py-[18px] pl-[15px] pr-[38px] rounded-[9px]'
-                )}
+                className={clsx('custom-select-list-item')}
                 key={idx}
                 onClick={() => {
                   setActive(opt.value);

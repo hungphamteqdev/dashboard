@@ -10,8 +10,8 @@ const Main = () => {
   return (
     <div
       className={clsx(
-        'Main w-full p-[15px]',
-        'md:w-[70%] md:p-[30px]',
+        'Main w-full p-3.75',
+        'md:w-[70%] md:p-7.5',
         'lg:w-[62.5%]'
       )}
     >
@@ -20,7 +20,7 @@ const Main = () => {
 
       <div
         className={clsx(
-          'flex flex-wrap items-center justify-between gap-[30px]',
+          'flex flex-wrap items-center justify-between gap-7.5',
           '3xl:flex-nowrap'
         )}
       >
@@ -44,22 +44,15 @@ const Main = () => {
             exp={'11/35'}
           />
         </div>
-        <div
-          className={clsx(
-            'self-stretch p-4',
-            'flex basis-full flex-col gap-[7px] items-center justify-center',
-            'border border-dashed border-[rgba(0,0,0,0.1)] rounded-[17px]',
-            '3xl:p-0 3xl:basis-[98px]'
-          )}
-        >
+        <div className={clsx('add-card-btn')}>
           <Image src={'/plus.png'} alt="" width={20} height={20} />
-          <p className={clsx(' text-[#999999]')}>Add Card</p>
+          <p className={clsx(' text-colorGrayLighter')}>Add Card</p>
         </div>
       </div>
 
-      <div className="mt-[33px]" />
+      <div className="mt-8" />
 
-      <div className={clsx('space-y-14', 'lg:flex lg:gap-[30px] lg:space-y-0')}>
+      <div className={clsx('space-y-14', 'lg:flex lg:gap-7.5 lg:space-y-0')}>
         <div className={clsx('lg:flex-[1_1_50%]')}>
           <Transection />
         </div>

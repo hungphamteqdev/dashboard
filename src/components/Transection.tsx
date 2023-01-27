@@ -24,7 +24,7 @@ const Transection = () => {
 
   if (data) {
     content = (
-      <ul className={clsx('space-y-[20px]')}>
+      <ul className={clsx('space-y-5')}>
         {data.length > 0 &&
           data.map((trans) => {
             return (
@@ -47,11 +47,7 @@ const Transection = () => {
 
   return (
     <div className={clsx('Transection')}>
-      <h3
-        className={clsx(
-          'h3 h-[43px] flex items-center justify-centers mb-[30px]'
-        )}
-      >
+      <h3 className={clsx('h3 h-11 flex items-center justify-centers mb-7.5')}>
         Transection
       </h3>
       {content}

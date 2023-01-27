@@ -51,10 +51,10 @@ const AllExpenses = () => {
           />
         </div>
       </div>
-      <div className={clsx('rounded-[17px] p-5 bg-white')}>
+      <div className={clsx('rounded-2xl p-5 bg-white')}>
         <div
           className={clsx(
-            'mb-[30px] gap-2 flex justify-around flex-wrap',
+            'mb-7.5 gap-2 flex justify-around flex-wrap',
             'xl:flex-nowrap xl:justify-between'
           )}
         >
@@ -63,7 +63,7 @@ const AllExpenses = () => {
               <div key={v.label}>
                 <p
                   className={clsx(
-                    'text-xs font-[600] mb-[2px] text-[rgba(0,0,0,0.4)]',
+                    'text-xs font-semibold mb-0.5 text-colorGray',
                     'md:text-xs'
                   )}
                 >
@@ -77,7 +77,7 @@ const AllExpenses = () => {
           })}
         </div>
 
-        <div className={clsx('relative mb-[30px]')}>
+        <div className={clsx('relative mb-7.5')}>
           <Doughnut
             data={{
               labels: labels,
@@ -103,7 +103,7 @@ const AllExpenses = () => {
               'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center'
             )}
           >
-            <p className={clsx('text-sm font-[600] text-[rgba(0,0,0,0.6)]')}>
+            <p className={clsx('text-sm font-semibold text-colorGrayDarker')}>
               Shopping
             </p>
             <p className={clsx('text-lg', 'lg:text-2xl')}>¥450.00</p>
@@ -115,16 +115,11 @@ const AllExpenses = () => {
             return (
               <div
                 key={v[0]}
-                className={clsx(
-                  'relative pl-[17px] text-xs font-[600]',
-                  'before:content-[""] before:w-[11px] before:h-[11px] before:bg-[${v[1]}]',
-                  'before:rounded-full before:absolute before:left-0 before:top-[3px]',
-                  {
-                    'before:bg-[#FFCA28]': idx === 0,
-                    'before:bg-[#EC6F48]': idx === 1,
-                    'before:bg-[#836CDA]': idx === 2,
-                  }
-                )}
+                className={clsx('all-expenses-label', {
+                  'before:bg-[#FFCA28]': idx === 0,
+                  'before:bg-[#EC6F48]': idx === 1,
+                  'before:bg-[#836CDA]': idx === 2,
+                })}
               >
                 {v[0]}
               </div>
